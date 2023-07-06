@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <title>Inscription MDL</title>
+    </head>
+    <body>
+        <h1>Inscription des utilisateurs de la MDL</h1>
+        <div>
+            <p> Rappel des règles liées au covid :</p>
+            <ul>
+                <li>Ouverture possible si il y a deux bénévoles actifs</li>
+                <li>Maximum 18 utilisateurs dans la MDL (les 2 bénévoles actifs derrière le bar exclus)</li>
+            </ul>
+        </div>
+
+        <form method="GET">
+            <div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom">
+            </div>
+            <div>
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom">
+            </div>
+            <div>
+                <label for="classe">Classe :</label>
+                <input type="text" id="classe" name="classe">
+            </div>
+            <div>
+                <button type="submit" id="envoi">Enregistrer l'entrée</button>
+            </div>
+        </form>
+
+
+        <script>
+            const nom = document.getElementById('nom');
+            const prenom = document.getElementById('prenom');
+            const classe = document.getElementById('classe');
+            const bouton = document.getElementById('envoi');
+
+            function formulaireComplet() {
+                return (nom.value.length > 0 && prenom.value.length > 0 && classe.value.length > 0);
+            
+            function testEnvoi(event) {
+                if (formulaireComplet()) {
+                    envoi.disabled = false;
+                } else {
+                    envoi.disabled = true
+                }
+            }
+
+            nom.oninput = testEnvoi;
+            prenom.oninput = testEnvoi;
+            classe.oninput = testEnvoi;
+
+            function soumettre(event) {
+                formulaire.submit()
+            }
+        </script>
+    </body>
+</html>
